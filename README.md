@@ -1,3 +1,7 @@
+This is an attempt to synthesize the work of https://github.com/remix-run/react-router-templates/blob/main/cloudflare-d1/database/schema.ts
+With the latest template from cloudflare for react-router:
+https://github.com/cloudflare/templates/blob/main/react-router-starter-template
+
 # Welcome to React Router + Cloudflare Workers!
 
 ![React Router Starter Template Preview](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/bfdc2f85-e5c9-4c92-128b-3a6711249800/public)
