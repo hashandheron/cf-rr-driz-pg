@@ -4,9 +4,11 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "cfrr",
-  "compatibility_date": "2024-11-01",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "main": "./server.ts",
   "assets": {
     "directory": "./dist/client"
@@ -14,7 +16,8 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true
+  "upload_source_maps": true,
+
   /**
    * Smart Placement
    * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -28,11 +31,19 @@
    * https://developers.cloudflare.com/workers/runtime-apis/bindings/
    */
 
+   "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "<your-hyperdrive-id",
+      "localConnectionString": "<your-local-connection-string>",
+    }
+  ],
+
   /**
    * Environment Variables
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    */
-  // "vars": { "MY_VARIABLE": "production_value" },
+  "vars": { "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare" },
   /**
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/

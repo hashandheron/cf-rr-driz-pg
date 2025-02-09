@@ -1,3 +1,8 @@
+import postgres from "postgres"
+import { drizzle, type NodePgDatabase } from 'drizzle-orm/node-postgres';
+// import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
+import * as schema from "./database/schema";
+
 type GetLoadContextArgs = {
   request: Request;
   context: {
@@ -7,6 +12,7 @@ type GetLoadContextArgs = {
       cf: Request["cf"];
       ctx: ExecutionContext;
     };
+    db: NodePgDatabase<typeof schema>;
   };
 };
 
@@ -18,5 +24,10 @@ declare module "react-router" {
 }
 
 export function getLoadContext({ context }: GetLoadContextArgs) {
-  return context;
+  // return context;
+  const db = drizzle(context.cloudflare.env.HYPERDRIVE.connectionString, { schema });
+  return {
+    ...context,
+    db
+  }
 }

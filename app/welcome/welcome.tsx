@@ -1,7 +1,7 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
-export function Welcome() {
+export function Welcome({users}) {
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -36,6 +36,15 @@ export function Welcome() {
                     {icon}
                     {text}
                   </a>
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {users.map((user) => (
+                <li key={user.id}>
+                  <p className="text-gray-700 dark:text-gray-200">
+                    {user.fullName}
+                  </p>
                 </li>
               ))}
             </ul>

@@ -3,13 +3,17 @@
     "**/*",
     "**/.server/**/*",
     "**/.client/**/*",
-    ".react-router/types/**/*"
+    ".react-router/types/**/*",
+    "database/**/*",
+    "load-context.ts",
+    "worker-configuration.d.ts"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "types": [
         "vite/client",
-        "@cloudflare/workers-types/2023-07-01"
+        "@cloudflare/workers-types/2023-07-01",
+        "node",
     ],
     "target": "ES2022",
     "module": "ES2022",
@@ -18,7 +22,8 @@
     "rootDirs": [".", "./.react-router/types"],
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "~/database/*": ["./database/*"],
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
